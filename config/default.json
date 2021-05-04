@@ -1,3 +1,4 @@
 {
+  "jwtPrivateKey": "secondPrivateKey",
   "db": "mongodb://localhost/recepiesSite-site"
 }
