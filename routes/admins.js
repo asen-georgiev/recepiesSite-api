@@ -35,7 +35,7 @@ router.post('/', async (req, res) => {
 //Retrieving all Admin users from DB
 router.get('/', async (req, res) => {
     const admins = await Admin.find().sort('adminName');
-    res.send(admins);
+    res.send(admins.map(admin => _.pick(admin,['_id','adminName','adminEmail','isAdmin'])));
 })
 
 
