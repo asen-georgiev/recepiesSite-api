@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const Joi = require('joi');
-const {User,validateUser} = require('models/user');
+const {User,validateUser} = require('../models/user');
 
 
 //User authentication route - If the user object is valid and is in DB -
@@ -34,9 +34,6 @@ function validateUserAuthent(user){
     });
     return schema.validate(user);
 }
-
-
-
 
 
 
