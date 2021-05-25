@@ -42,9 +42,9 @@ router.get('/:id', async(req, res) => {
 
 //Retrieving all the User objects from the DB
 router.get('/',async(req, res) => {
-    const users = User.find().sort('userName');
+    const users = await User.find().sort('userName');
     if(!users) return res.status(404).send('There are no registered Users in the DB');
-    res.send(users);
+    res.send(users.map(user => _.pick(user,['_id','userName','userPicture','userAddress','userTelephone'])));
 })
 
 
