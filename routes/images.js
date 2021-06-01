@@ -4,7 +4,7 @@ const multer = require("multer");
 const{Upload,getImagesFromDirectory} = require('../models/image');
 
 
-//Post request for uploadin images to Gallery folder - no token needed
+//Post request for uploading images to Gallery folder - no token needed
 //In this case we will make it with authorization
 router.post('/',(req, res) => {
     Upload(req,res,function(err){

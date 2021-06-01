@@ -33,18 +33,26 @@ const recipeSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
         required: true
+    },
+    recipeBGLanguage: {
+        type: Boolean
+    },
+    recipeENLanguage: {
+        type: Boolean
     }
 })
 
-const Recipe = mongoose.model('Recipe',recipeSchema);
+const Recipe = mongoose.model('Recipe', recipeSchema);
 
-function validateRecipe(recipe){
+function validateRecipe(recipe) {
     const schema = Joi.object({
         recipeTitle: Joi.string().required().min(5).max(100),
         recipeText: Joi.string().required().min(50).max(5000),
         recipeType: Joi.string().required().min(3).max(30),
         recipePictures: Joi.array().items(Joi.string()).allow(''),
-        recipeProducts: Joi.string().required().min(5).max(500)
+        recipeProducts: Joi.string().required().min(5).max(500),
+        recipeBGLanguage: Joi.boolean(),
+        recipeENLanguage: Joi.boolean()
     });
     return schema.validate(recipe);
 }
