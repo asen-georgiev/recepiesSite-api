@@ -38,7 +38,7 @@ router.get('/:id', async(req, res) => {
 
 
 //Updating single Recipe object - admin rights only
-router.put('/;id',async(req, res) => {
+router.put('/:id',async(req, res) => {
     const{error} = validateRecipe(req.body);
     if(error) return res.status(400).send(error.details[0].message);
 
